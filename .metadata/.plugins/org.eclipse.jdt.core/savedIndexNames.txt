@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+D:\Personal Files\Documents\My Documents\College\2022 Fall\OOP\FallProjects\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3011209426.index
+866238316.index
+1213909102.index
