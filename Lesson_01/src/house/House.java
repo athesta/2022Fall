@@ -1,18 +1,5 @@
 package house;
 
-public static void main(String[] args) {
-	// TODO Auto-generated method stub
-	House house1, house2;
-	house1 = new House (2,1000.0f);
-	house2 = new House (2500.0f);
-	
-	house1.setSqFt(1500.0f);
-	house2.setFloors(1);
-	System.out.println(house1);
-	
-
-}
-
 public class House {
 
 	
@@ -23,14 +10,17 @@ public class House {
 	          squarefeet = sq; 
 
 	     } 
+	     
 	     public House( int f, float sq ) { 
 	          floors = f; 
 	          squarefeet = sq; 
-	     } 
+	     }
+	     
 	     public void setFloors( int f ) { 
 	          floors = f; 
 
-	     } 
+	     }
+	     
 	     public void setSqFt( float sq ) { 
 	          squarefeet = sq; 
 	     } 
@@ -45,15 +35,23 @@ public class House {
 	    	 
 	     }
 
+			
 	
 	
-	public class Hello {
-		House house1 = new House (2);
-		
-		
-	}
+public static void main (String[] args) {
+	// TODO Auto-generated method stub
+	House house1, house2;
+	house1 = new House (2,1000.0f);
+	house2 = new House (2500.0f);
+	
+	house1.setSqFt(1500.0f);
+	house2.setFloors(1);
+	System.out.println(house1);
 	
 }
+
+}
+
 	
 
 
