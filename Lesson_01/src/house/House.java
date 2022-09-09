@@ -47,6 +47,7 @@ public static void main (String[] args) {
 	house1.setSqFt(1500.0f);
 	house2.setFloors(1);
 	System.out.println(house1);
+	System.out.println(house2);
 	
 }
 
