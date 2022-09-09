@@ -1,2 +1,2 @@
 #Ignore the following directories
-APCLesson1/*
+APCLesson1/
