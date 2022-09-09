@@ -1,5 +1,5 @@
 package edu.uwex.apc390.lesson1_4;
-
+//JenTest Quick
 public class FlawedLogic {
 
 	public static void main(String[] args) {

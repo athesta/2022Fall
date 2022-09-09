@@ -7,6 +7,10 @@
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1662520171397_5" label="DiscussionAssignments" name="DiscussionAssignments">
 <item elementID="=A1PreTest2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=A1PreTest1" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1662689110509_6" label="Assignments" name="Assignments">
+<item elementID="=AssignmentOne" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1661997174157_2" label="Window Working Set" name="Aggregate for window 1661997174157"/>
 </workingSetManager>
