@@ -8,7 +8,7 @@ package files;
  */
 public class ReadText1 {
 
-	private static String input1 = "inputfile.txt";
+	private static String input1 = "songs.txt";
 
 	public static void main(String[] args) throws java.io.FileNotFoundException, java.io.IOException {
 		System.out.println("Opening the file '" + input1 + "'.");
