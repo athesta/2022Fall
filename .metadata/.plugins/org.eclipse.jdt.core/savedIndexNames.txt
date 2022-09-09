@@ -1,7 +1,0 @@
-INDEX VERSION 1.131+D:\Personal Files\Documents\My Documents\College\2022_Fall\OOP\FallProjects\.metadata\.plugins\org.eclipse.jdt.core
-866238316.index
-1865797976.index
-1213909102.index
-2863197910.index
-1770828587.index
-2512136665.index
