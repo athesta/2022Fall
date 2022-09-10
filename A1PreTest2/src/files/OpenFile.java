@@ -12,7 +12,7 @@ public class OpenFile {
 				String path = file.getPath();
 				System.out.println("File " + path + " is readable");
 			} else {
-				System.out.println("File could not be read");
+			System.out.println("File could not be read");
 			}
 		} else {
 		}
