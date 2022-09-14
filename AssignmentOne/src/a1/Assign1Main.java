@@ -1,5 +1,7 @@
 package a1;
 
+import java.io.FileNotFoundException;
+
 import javax.swing.JOptionPane;
 import tables.*;
 
@@ -34,7 +36,7 @@ public class Assign1Main {
 			+ "   " + FIND_ROW + ": Find a row\n"
 			+ "   " + QUIT + ": Quit\n";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		JOptionPane.showMessageDialog(null, welcomeMessage);
 		TextTable mytexttable = new TextTable();
 
@@ -45,7 +47,7 @@ public class Assign1Main {
 		}
 	}
 
-	private static void processSelection(TextTable mytable, int userSelection) {
+	private static void processSelection(TextTable mytable, int userSelection) throws FileNotFoundException {
 		switch (userSelection) {
 		case LOAD:
 			// Remember that you can have text files in your Eclipse Project

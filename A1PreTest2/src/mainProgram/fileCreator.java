@@ -22,19 +22,18 @@ public class fileCreator {
 	public static void main(String[] args)throws java.io.FileNotFoundException, java.io.IOException {
 		String input = "songs.txt";
 		String output = "songsout.txt";
-		String songTilte, songArtist, songLength;
+		//String songTilte, songArtist, songLength;
 		
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(new FileReader(input));
-		Writer ouput = null;
-		PrintWriter outFile = new PrintWriter(ouput);
+		PrintWriter outFile = new PrintWriter(output);
 		
-		while (scanner.hasNext()) {
+		while (scanner.hasNextLine()) {
+			outFile.println(scanner.nextLine());
 		
-		
-			
+		}
+		outFile.close();	
 
 	}
 
-}
 }

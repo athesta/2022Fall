@@ -8,7 +8,7 @@ package files;
  */
 public class ReadText3 {
 
-	private static String input1 = "songs.txt";
+	private static String input1 = "song8s.txt";
 
 	public static void main(String[] args) {
 		System.out.println("Opening the file '" + input1 + "'.");
