@@ -1,0 +1,10 @@
+Table data for people in my group 2021
+
+[Ljava.lang.String;@478190fc
+[Ljava.lang.String;@79e2c065
+[Ljava.lang.String;@3a93b025
+[Ljava.lang.String;@35cabb2a
+[Ljava.lang.String;@7e07db1f
+[Ljava.lang.String;@1189dd52
+[Ljava.lang.String;@36bc55de
+[Ljava.lang.String;@564fabc8
