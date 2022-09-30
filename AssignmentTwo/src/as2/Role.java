@@ -14,8 +14,20 @@ public class Role {
 	}
 	
 	//Methods
-	 
-	
+
+
+	public String getName() {
+		return name;
+	}
+
+	public Actor getActor() {
+		return actor;
+	}
+
+	public int getStartseason() {
+		return startseason;
+	}
+
 	//toString prints out the role information in the following format:
 	//Role [name=RoleFirstName RoleLastName, season number Actor[name=ActorFirstName ActorLastName]]
 	//ex: Role [name=Ben Wyatt, 2 Actor [name=Adam Scott]]

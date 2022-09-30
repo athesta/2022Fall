@@ -1,5 +1,6 @@
 package as2;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 public class Cast {
 	static PrintStream syso = System.out;
@@ -16,7 +17,14 @@ public class Cast {
 		syso.println(r3);
 		
 		CastList fullCast = new CastList();
-		fullCast.toString();
+		fullCast.addRoletoList("Leslie Knope", "Amy Poehler", season2);
+		fullCast.addRoletoList("Ron Swanson",  "Nick Offerman", seasonf);
+		fullCast.addRoletoList("Ben Wyatt",    "Adam Scott",    season2);
+		fullCast.addRoletoList("Ben Wyatt",    "Adam Scott",    season2);
+		fullCast.addRoletoList("Ben Wyatt",    "Adam Scott",    season2);
+		fullCast.addRoletoList("Ben Wyatt",    "Adam Scott",    season2);
+		//System.out.println(Arrays.toString(fullCast));
+		System.out.println(fullCast);
 		
 		
 	}

@@ -1,27 +1,48 @@
 package as2;
 
+import java.util.Arrays;
+
 public class CastList {
-	
-	//Data Members
-	private Role[] roles;
+
+	// Data Members
+	private Role[] roles = new Role[5];
+	private int roleCount = 0;
+
+	// Constructor
 	
 	public CastList() {
-		 roles = new Role[5];
+		for (int i = roleCount; i < roles.length; i++) {
+			Role roleInfo = new Role(null, null, 0);
+			roles[i] = roleInfo;
+
+		}
+	}
+
+	// methods
+	public void addRoletoList(String name, String actor, int season) {
+		Role addRole = new Role(name, actor, season);
+		try {
+			roles[roleCount] = addRole;
+			roleCount++;
+		} catch (java.lang.ArrayIndexOutOfBoundsException fnfex) {
+			System.err.println("There is a limit of five cast members per cast list. Your cast list is full.");
+		}
+
 	}
 	
-	//methods
-	public void addRoleToCast(Role [] r) {
+	public void removeRoleFromList() {
 		
 	}
-	
-	
-	
-	//ToString
+
+	// ToString
 	public String toString() {
-		String roleInfo = null;
-		for (Role r: roles) 
-			if (r != null)
-			roleInfo = r +"\n";	
-		return roleInfo;
+		String roleInfo = "\n";
+		for (int i = 0; i < roleCount; i++) {
+			roleInfo += roles[i] + "\n";
+		}
+		return "Current Role Count: " + roleCount + "\n" + roleInfo;
+		// Arrays.toString(roles);
+
 	}
+
 }

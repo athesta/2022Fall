@@ -11,6 +11,13 @@ public class TextTable {
 	private int numRows=0;
 
 
+	public TextTable(String headerInfo, TableRow[] fullTable, int numRows) {
+		super();
+		this.headerInfo = headerInfo;
+		this.fullTable = fullTable;
+		this.numRows = numRows;
+	}
+
 	//loads the table file with fileName as a string.
 	public void loadTableFromFile(String fileName) {
 
