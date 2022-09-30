@@ -11,10 +11,16 @@ public class Actor {
 	}
 	
 	//Methods
+
+	public String getName() {
+		return name;
+	}
 	
 	//toString prints out the actor name in the following format:
 	//Actor [name = Jennifer Swofford]
 	public String toString() {
 		return "Actor [name=" + name + "]";
 	}
+
+	
 }

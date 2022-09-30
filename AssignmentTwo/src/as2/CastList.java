@@ -1,7 +1,4 @@
 package as2;
-
-import java.util.Arrays;
-
 public class CastList {
 
 	// Data Members
@@ -11,12 +8,20 @@ public class CastList {
 	// Constructor
 	
 	public CastList() {
-		for (int i = roleCount; i < roles.length; i++) {
-			Role roleInfo = new Role(null, null, 0);
-			roles[i] = roleInfo;
+		// for (int i = roleCount; i < roles.length; i++) {
+		// 	Role roleInfo = new Role(null, null, 0);
+		// 	roles[i] = roleInfo;
 
-		}
+		// }
 	}
+
+	public CastList(Role[] bumblebees) {
+		//forloop here
+		this.roles[i] = bumblebees[i];
+		
+	}
+
+
 
 	// methods
 	public void addRoletoList(String name, String actor, int season) {
