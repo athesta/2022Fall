@@ -1,32 +1,27 @@
 package as2;
 
 public class Role {
-	//Data Members
+	
+	/*
+	 * Data Members
+	 */
 	private String name;
 	private Actor  actor;
 	private int    startseason;
 	
-	//Constructor
+	/*
+	 * Constructor
+	 */
+	
 	public Role( String n, String a, int start){
 		name = n;
 		actor = new Actor( a );
 		startseason = start;
 	}
-	
-	//Methods
 
-
-	public String getName() {
-		return name;
-	}
-
-	public Actor getActor() {
-		return actor;
-	}
-
-	public int getStartseason() {
-		return startseason;
-	}
+	/*
+	 * Methods
+	 */
 
 	//toString prints out the role information in the following format:
 	//Role [name=RoleFirstName RoleLastName, season number Actor[name=ActorFirstName ActorLastName]]

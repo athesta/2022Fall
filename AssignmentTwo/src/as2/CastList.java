@@ -1,51 +1,78 @@
 package as2;
+
 public class CastList {
 
-	// Data Members
+	/*
+	 * Data Members
+	 */
+
 	private Role[] roles = new Role[5];
 	private int roleCount = 0;
 
-	// Constructor
-	
+	/*
+	 * Constructors
+	 */
+
 	public CastList() {
-		// for (int i = roleCount; i < roles.length; i++) {
-		// 	Role roleInfo = new Role(null, null, 0);
-		// 	roles[i] = roleInfo;
 
-		// }
 	}
 
-	public CastList(Role[] bumblebees) {
-		//forloop here
-		this.roles[i] = bumblebees[i];
-		
+	public CastList(Role[] arrayofRoles) {
+		for (int i = roleCount; i < roles.length; i++)
+			this.roles[i] = arrayofRoles[i];
 	}
 
+	/*
+	 * Methods
+	 */
 
-
-	// methods
-	public void addRoletoList(String name, String actor, int season) {
-		Role addRole = new Role(name, actor, season);
+	// Adds a role to the cast
+	public void addRole(Role newRole) {
 		try {
-			roles[roleCount] = addRole;
+			roles[roleCount] = newRole;
 			roleCount++;
 		} catch (java.lang.ArrayIndexOutOfBoundsException fnfex) {
 			System.err.println("There is a limit of five cast members per cast list. Your cast list is full.");
 		}
-
-	}
-	
-	public void removeRoleFromList() {
-		
 	}
 
-	// ToString
+	// Removes a role from the Cast List when the user indicates the role object
+	// they're removing
+	// Reorders the cast list to move nulls to the end of the array
+	public void deleteRole(Role removeRole) {
+		String roleToDelete = removeRole.toString();
+
+		for (int i = 0; i < roleCount; i++) {
+			Role removeCast = roles[i];
+			String existingRole = removeCast.toString();
+
+			if (existingRole.equals(roleToDelete)) {
+				roles[i] = null;
+				roleCount--;
+			}
+		}
+
+		for (int j = 0; j < roles.length; j++) {
+			if (roles[j] == null) {
+				for (int k = j + 1; k < roles.length; k++) {
+					roles[k - 1] = roles[k];
+				}
+				roles[roles.length - 1] = null;
+				break;
+			}
+		}
+
+	}
+
+	// toString
+	// Will display the Current Role Count of the entire Cast, and the full cast
+	// list
 	public String toString() {
 		String roleInfo = "\n";
 		for (int i = 0; i < roleCount; i++) {
 			roleInfo += roles[i] + "\n";
 		}
-		return "Current Role Count: " + roleCount + "\n" + roleInfo;
+		return "Number of roles in the cast: " + roleCount + "\n" + roleInfo;
 		// Arrays.toString(roles);
 
 	}
