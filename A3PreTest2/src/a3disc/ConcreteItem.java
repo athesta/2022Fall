@@ -16,4 +16,16 @@ public class ConcreteItem extends AbstractItem {
 	public String toString() {
 		return "[ " + super.toString() + ", " + y + " ]";
 	}
+	
+	public boolean equals(Object other) {
+		if (super.equals(other)) {
+			ConcreteItem other2 = (ConcreteItem) other;
+			if (this.y == other2.y){
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+	
 }
