@@ -1,4 +1,4 @@
-package a3;
+package a1;
 
 import java.io.FileNotFoundException;
 
@@ -7,7 +7,7 @@ import tables.*;
 
 /**
  * <p> Title: APC 390 Assignment #3 </p>
- * <p> Description: Interactive Table builder. Assign3Main
+ * <p> Description: Interactive Table builder. Assign1Main
  *     - read a text file containing a table of data </p>
  * <p> Copyright: Copyright (c) 2021 </p>
  * <p> Company: UWRF </p>
@@ -20,7 +20,7 @@ import tables.*;
  * 
  */
 
-public class Assign3Main {
+public class Assign1Main {
 	
 	
 	
@@ -55,9 +55,9 @@ public class Assign3Main {
 		switch (userSelection) {
 		case LOAD:
 			// Remember that you can have text files in your Eclipse Project
-			// If this file is in src/a3, you could read the input.txt file in your a3
+			// If this file is in src/a1, you could read the input.txt file in your a1
 			// package
-			// using the "fileName" src/a3/input.txt
+			// using the "fileName" src/a1/input.txt
 			String fileName = JOptionPane.showInputDialog("Please enter the name of the text file to load");
 			System.out.println("Opening the file '" + fileName + "'.");
 			mytable.loadTableFromFile(fileName);
