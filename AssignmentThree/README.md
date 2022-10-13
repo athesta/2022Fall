@@ -1,6 +1,5 @@
-# Requirements
 
-## Purpose
+# Purpose
 
 In this assignment, we will look at handling two kinds of tables stored in text files. We will use a class for each kind of table. Because there will be similarities between these two classes, we will use an abstract class to represent those things that are common to the two. We will use inheritance, polymorphism, and abstract classes in this assignment.
 
@@ -13,7 +12,7 @@ Your objective is to be able to write a Java program that can:
 * Search for a row in an array of rows, remove an existing row from an array
 * Use inheritance, polymorphism, and abstract classes
 
-## Instructions
+# Instructions
 
 Start with your Assign1Main.java file from Assignment #1 or use the starter file provided in that assignment. This class has a main method which is where your program execution should start.
 
@@ -23,7 +22,7 @@ Make sure the Assign3Main class prints out your name using System.out when the p
 
 Look at the material on Inheritance (Lesson 3), Polymorphism (Lesson 4) and Abstract Classes (Lesson 5).
 
-## Your Tasks
+# Your Tasks
 
 Create six new classes in the a3 package:
 * An abstract class named AbstractTable
@@ -33,11 +32,11 @@ Create six new classes in the a3 package:
 
 Keep reading for more details.
 
-## Implementation Details
+# Implementation Details
 
 Refactor the main method in Assign3Main.java to use some of these new classes instead of TextTable.
 
-### City Table/Stadium Table
+## City Table/Stadium Table
 
 Modify your program to be able to read two types of files: City table files or Stadium table files depending on what the user wants to do.
 * A City table file should have this structure:
@@ -62,7 +61,7 @@ Modify your program to be able to read two types of files: City table files or S
 
 * Sample cities.txt and stadia.txt files are provided.  We can assume there will be a maximum of 101 lines in any input file.
 
-### Program Details
+## Program Details
 
 Our program should allow the user to: 
 
@@ -73,7 +72,7 @@ Our program should allow the user to:
 * Remove an entire existing row in a table with the row chosen based on the city id.
 * Check the table if data exist for a particular city id
 
-### Classes
+## Classes
 
 Each class should be in a separate .java file. Add comments at the top of each .java file showing your name and email.
 
@@ -105,7 +104,7 @@ Each of your concrete Row classes will need:
 
 Include explanations of which methods you chose to make abstract in a TestResults file (more details below).
 
-## Testing Your Code
+# Testing Your Code
 
 Test your code with different text files you create on your own with:
 
@@ -113,7 +112,7 @@ Test your code with different text files you create on your own with:
 * Different number of lines
 * Boundary conditions such as an empty file
 
-## Submission Instructions
+# Submission Instructions
 
 Once you are done with the assignment, submit a single .jar file containing:
 
