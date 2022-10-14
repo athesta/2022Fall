@@ -6,9 +6,9 @@ import javax.swing.JOptionPane;
 import tables.*;
 
 /**
- * <p> Title: APC 390 Assignment #1 </p>
- * <p> Description: Interactive Table builder. Assign1Main
- *     - read a text file containing a table of data </p>
+ * <p> Title: APC 390 Assignment #3</p>
+ * <p> Description: Interactive Table builder. Assign3Main
+ *     - modifying Assign1Main to use inheritance, polymorphism, & abstract classes </p>
  * <p> Copyright: Copyright (c) 2021 </p>
  * <p> Company: UWRF </p>
  * 
@@ -19,6 +19,8 @@ import tables.*;
  * swoffordj@uwplatt.edu
  * 
  */
+
+
 
 public class Assign3Main {
 	static final int LOAD = 1, SAVE = 2, ADD_ROW = 3, REMOVE_ROW = 4, FIND_ROW = 5, QUIT = 6;
@@ -37,6 +39,7 @@ public class Assign3Main {
 			+ "   " + QUIT + ": Quit\n";
 
 	public static void main(String[] args) throws FileNotFoundException {
+		System.out.println("Jennifer Swofford");
 		JOptionPane.showMessageDialog(null, welcomeMessage);
 		TextTable mytexttable = new TextTable();
 
@@ -50,10 +53,6 @@ public class Assign3Main {
 	private static void processSelection(TextTable mytable, int userSelection) throws FileNotFoundException {
 		switch (userSelection) {
 		case LOAD:
-			// Remember that you can have text files in your Eclipse Project
-			// If this file is in src/a3, you could read the input.txt file in your a3
-			// package
-			// using the "fileName" src/a3/input.txt
 			String fileName = JOptionPane.showInputDialog("Please enter the name of the text file to load");
 			System.out.println("Opening the file '" + fileName + "'.");
 			mytable.loadTableFromFile(fileName);

@@ -16,7 +16,7 @@ Your objective is to be able to write a Java program that can:
 
 Start with your Assign1Main.java file from Assignment #1 or use the starter file provided in that assignment. This class has a main method which is where your program execution should start.
 
-Rename the class Assign3Main and change the file name to match the new class name. Put this file in a new package named “a3”.
+Rename the class Assign3Main and change the file name to match the new class name. Put this file in a new package named `a3`.
 
 Make sure the Assign3Main class prints out your name using System.out when the program runs; it should be the first thing your program should print when it starts.
 

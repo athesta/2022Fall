@@ -1,5 +1,13 @@
+/*
+ * Author: Jennifer Swofford
+ * Email:  jswofford@uwplatt.edu
+ * 
+ */
+
 package a3;
 
-public class AbstractRow {
+public abstract class AbstractRow {
+	
+	public abstract void equals();
 
 }
