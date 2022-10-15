@@ -9,4 +9,3 @@ Exploria Stadium,	15,	Orlando City,	25500
 Providence Park,	14,	Timbers,	25218
 Red Bull Arena,	13,	Red Bulls,	25189
 BBVA Stadium,	12,	Dynamo,	22039
-
