@@ -22,4 +22,8 @@ public class StadiumRow extends AbstractRow {
 		
 	}
 	
+	public String toString() {
+		return String.join(", ", rowStadium); 
+	}
+	
 }

@@ -3,7 +3,7 @@ package a3;
 import java.io.FileNotFoundException;
 
 import javax.swing.JOptionPane;
-import tables.*;
+
 
 /**
  * <p> Title: APC 390 Assignment #3</p>
@@ -42,6 +42,7 @@ public class Assign3Main {
 		System.out.println("Jennifer Swofford");
 		JOptionPane.showMessageDialog(null, welcomeMessage);
 		CityTable cityInfo = new CityTable();
+		StadiumTable stadiumInfo = new StadiumTable();
 
 		int userSelection = 0;
 		while (userSelection != QUIT) {
@@ -65,16 +66,16 @@ public class Assign3Main {
 			String city = JOptionPane.showInputDialog("Please enter the city you want to add to the table");
 			String cityId = JOptionPane.showInputDialog("Please enter the ID for " + city);
 			String population = JOptionPane.showInputDialog("Please enter the population for " + city);
-			mytable.addRow(city, cityId, population); //fix this later mytable.addRow(number, name, value)
+			mytable.addRow(city, cityId, population); 
 			break;
 		case REMOVE_ROW:
 			city = JOptionPane
-					.showInputDialog("Please enter the name in the row you want to remove from the table");
-			mytable.removeRow(); //fix this later mytable.removeRow(number)
+					.showInputDialog("Please enter the city name in the row you want to remove from the table");
+			mytable.removeRow(city); 
 			break;
 		case FIND_ROW:
-			cityId = JOptionPane.showInputDialog("Please enter the name in the row you want to find.");
-			JOptionPane.showMessageDialog(null, mytable.findRow()); //fix this later JOptionPane.showMessageDialog(null, mytable.findRow(name));
+			cityId = JOptionPane.showInputDialog("Please enter the City Id in the row you want to find.");
+			JOptionPane.showMessageDialog(null, mytable.findRow(cityId)); 
 			break;
 		case QUIT:
 			JOptionPane.showMessageDialog(null, "Have a nice day");

@@ -9,5 +9,6 @@ package a3;
 public abstract class AbstractRow {
 	
 	public abstract void equals();
+	public abstract String toString();
 
 }

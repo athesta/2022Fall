@@ -36,13 +36,50 @@ public class CityTable extends AbstractTable {
 
 	}
 
-	public void removeRow() {
+	public void removeRow(String city) {
+		String userInputCity = city;
+		
+		for (int i=0; i<rowCount && fullTable[i] != null; i++) {
+			AbstractRow getTableRow = fullTable[i];
+			String getTableRowString = getTableRow.toString();
+			String [] split = splitString(getTableRowString);
+
+			if (split[0].equalsIgnoreCase(userInputCity)) {
+				fullTable[i] = null;
+				rowCount--;
+				setRowCount(rowCount);
+			}
+		}
+
+
+		for (int j=0; j<fullTable.length; j++){ 
+			if (fullTable[j]==null) {
+				for (int k=j+1; k < fullTable.length; k++){
+					fullTable[k-1] = fullTable[k];
+				}
+				fullTable[fullTable.length-1] = null;
+				break;
+			}
+		}
+		//QA/Validation output
+		System.out.println(Arrays.toString(fullTable)); System.out.println("\nNumber of rows:" + rowCount);
 
 	}
 
-	public String findRow() {
-		String row = "hi";
-		return row;
+	public String findRow(String cityId) {
+		String userInputId=cityId;
+		String output = "Row Not Found.";
+
+		for (int i=0; i<rowCount &&  fullTable[i] != null; i++) {
+			AbstractRow getTableRow = fullTable[i];
+			String getTableRowString = getTableRow.toString();
+			String [] split = splitString(getTableRowString);
+
+			if (split[1].equalsIgnoreCase(userInputId))
+				output= getTableRowString;
+		}
+
+		return output;
 	}
 
 	
