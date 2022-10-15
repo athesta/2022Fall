@@ -88,9 +88,7 @@ public class Assign3Main {
 			cityId = JOptionPane.showInputDialog("Please enter the City Id in the row you want to find.");
 			JOptionPane.showMessageDialog(null, mytable.findRow(cityId)); 
 			break;
-		//case QUIT:
-			//JOptionPane.showMessageDialog(null, "Have a nice day");
-			//break;
+
 		default:
 			JOptionPane.showMessageDialog(null, "Invalid Input");
 		}

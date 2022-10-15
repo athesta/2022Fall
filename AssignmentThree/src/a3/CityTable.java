@@ -17,24 +17,24 @@ public class CityTable extends AbstractTable {
 	
 	public void addRow(String city, String cityId, String population) {
 		CityRow singleRow = new CityRow(city, cityId, population);
-		
-		try {
-			fullTable[rowCount] = singleRow;
-			rowCount++;
-			setRowCount(rowCount);
-
-			//QA/Validation : 
-			System.out.println (" TEST: Array for Row " + rowCount +": \n");
-			System.out.println(singleRow.toString());
-			System.out.println("\n ENDTEST");
-
+			try {
+			
+				fullTable[rowCount] = singleRow;
+				rowCount++;
+				setRowCount(rowCount);
+	
+				//QA/Validation : 
+				//System.out.println (" TEST: Array for Row " + rowCount +": \n");
+				//System.out.println(singleRow.toString());
+				//System.out.println("\n ENDTEST");
+	
+			}
+			
+			catch (java.lang.ArrayIndexOutOfBoundsException fnfex){
+				System.err.println("Your table is full. You should remove a row prior to adding additional data.");
+			}
 		}
-		
-		catch (java.lang.ArrayIndexOutOfBoundsException fnfex){
-			System.err.println("Your table is full. You should remove a row prior to adding additional data.");
-		}
 
-	}
 
 	public void removeRow(String city) {
 		String userInputCity = city;
@@ -50,7 +50,6 @@ public class CityTable extends AbstractTable {
 				setRowCount(rowCount);
 			}
 		}
-
 
 		for (int j=0; j<fullTable.length; j++){ 
 			if (fullTable[j]==null) {

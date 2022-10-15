@@ -22,13 +22,17 @@ public class StadiumRow extends AbstractRow {
 	
 	//IMPLEMENT ABSTRACT METHODS
 	//Equals method checks if two rows are the same
-	public void equals() {
-		
+	//unsure what to use this for?
+	public boolean equals(String input) {
+		if (rowStadium[0]==input)
+			return true;
+		return false;
 	}
 	
 	//toString method
 	public String toString() {
 		return String.join(", ", rowStadium); 
 	}
+
 	
 }
