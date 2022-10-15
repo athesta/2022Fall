@@ -6,7 +6,7 @@
 
 package a3;
 
-public abstract class StadiumRow extends AbstractRow {
+public class StadiumRow extends AbstractRow {
 	
 	private String[] rowStadium = new String [4];
 	

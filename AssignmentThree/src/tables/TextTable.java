@@ -63,7 +63,7 @@ public class TextTable {
 
 			//QA/Validation : 
 			//System.out.println (" TEST: Array for Row " + numRows +": \n");
-			//System.out.println(singleRow.toString());
+			System.out.println(singleRow.toString());
 			//System.out.println("\n ENDTEST");
 
 		}

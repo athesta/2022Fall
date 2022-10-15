@@ -41,16 +41,16 @@ public class Assign3Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		System.out.println("Jennifer Swofford");
 		JOptionPane.showMessageDialog(null, welcomeMessage);
-		TextTable mytexttable = new TextTable();
+		CityTable cityInfo = new CityTable();
 
 		int userSelection = 0;
 		while (userSelection != QUIT) {
 			userSelection = Integer.parseInt(JOptionPane.showInputDialog(promptMessage));
-			processSelection(mytexttable, userSelection);
+			processSelection(cityInfo, userSelection);
 		}
 	}
 
-	private static void processSelection(TextTable mytable, int userSelection) throws FileNotFoundException {
+	private static void processSelection(CityTable mytable, int userSelection) throws FileNotFoundException {
 		switch (userSelection) {
 		case LOAD:
 			String fileName = JOptionPane.showInputDialog("Please enter the name of the text file to load");
@@ -59,22 +59,22 @@ public class Assign3Main {
 			break;
 		case SAVE:
 			fileName = JOptionPane.showInputDialog("Please enter the name of the text file to which to save");
-			mytable.saveTableToFile(fileName);
+			mytable.saveTable(fileName);
 			break;
 		case ADD_ROW:
-			String number = JOptionPane.showInputDialog("Please enter the number you want to add to the table");
-			String name = JOptionPane.showInputDialog("Please enter the name for " + number);
-			String value = JOptionPane.showInputDialog("Please enter the value for " + number);
-			mytable.addRow(number, name, value);
+			String city = JOptionPane.showInputDialog("Please enter the city you want to add to the table");
+			String cityId = JOptionPane.showInputDialog("Please enter the ID for " + city);
+			String population = JOptionPane.showInputDialog("Please enter the population for " + city);
+			mytable.addRow(city, cityId, population); //fix this later mytable.addRow(number, name, value)
 			break;
 		case REMOVE_ROW:
-			number = JOptionPane
+			city = JOptionPane
 					.showInputDialog("Please enter the name in the row you want to remove from the table");
-			mytable.removeRow(number);
+			mytable.removeRow(); //fix this later mytable.removeRow(number)
 			break;
 		case FIND_ROW:
-			name = JOptionPane.showInputDialog("Please enter the name in the row you want to find.");
-			JOptionPane.showMessageDialog(null, mytable.findRow(name));
+			cityId = JOptionPane.showInputDialog("Please enter the name in the row you want to find.");
+			JOptionPane.showMessageDialog(null, mytable.findRow()); //fix this later JOptionPane.showMessageDialog(null, mytable.findRow(name));
 			break;
 		case QUIT:
 			JOptionPane.showMessageDialog(null, "Have a nice day");

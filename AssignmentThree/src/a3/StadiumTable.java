@@ -6,7 +6,7 @@
 
 package a3;
 
-public abstract class StadiumTable extends AbstractTable {
+public class StadiumTable extends AbstractTable {
 	
 	public void addRow() {
 

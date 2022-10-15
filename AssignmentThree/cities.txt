@@ -9,4 +9,3 @@ Jacksonville,	29,	0.92
 Atlanta,	21,	0.512
 Foxboro,	20,	0.02
 Seattle,	19,	0.77
-
