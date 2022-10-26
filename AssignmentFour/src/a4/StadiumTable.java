@@ -4,37 +4,34 @@
  * 
  */
 
-package a3;
+package a4;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class CityTable extends AbstractTable {
+public class StadiumTable extends AbstractTable {
 
 	// DATA MEMBERS
 	private int rowCount = getRowCount();
 	private AbstractRow[] fullTable = getAbFullTable();
 
 	// CLASS METHODS
-	public void addRow(String city, String cityId, String population) {
-		CityRow singleRow = new CityRow(city, cityId, population);
+	// addRow method adds a row to the Stadium Table
+	public void addRow(String stadiumName, String cityId, String teamName, String capacity) {
+		StadiumRow singleRow = new StadiumRow(stadiumName, cityId, teamName, capacity);
 		try {
-
 			fullTable[rowCount] = singleRow;
 			rowCount++;
 			setRowCount(rowCount);
-
-			// QA/Validation :
-			// System.out.println (" TEST: Array for Row " + rowCount +": \n");
-			// System.out.println(singleRow.toString());
-			// System.out.println("\n ENDTEST");
-
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException fnfex) {
 			System.err.println("Your table is full. You should remove a row prior to adding additional data.");
 		}
+
 	}
 
 	// IMPLEMENT ABSTRACT METHODS
@@ -49,7 +46,7 @@ public class CityTable extends AbstractTable {
 				while (inFile.hasNextLine()) {
 					String Line = inFile.nextLine();
 					String[] rowElements = splitString(Line);
-					addRow(rowElements[0], rowElements[1], rowElements[2]);
+					addRow(rowElements[0], rowElements[1], rowElements[2], rowElements[3]);
 
 					// QA/Validation Testing during implementation
 					System.out.println("TEST HEADER: " + getTableHeader() + " \nTEST CURRENT ROW #: " + getRowCount());
@@ -69,8 +66,9 @@ public class CityTable extends AbstractTable {
 	// Save the table file
 	public void saveTable(String fileName) throws FileNotFoundException {
 		PrintWriter outFile = new PrintWriter(fileName);
+
 		if (getTableHeader() == null) {
-			setTableHeader("My Cities: City, city id, population in millions");
+			setTableHeader("Stadiums: Stadium name, City id, Team name, capacity");
 			outFile.println(getTableHeader() + "\n");
 		}
 
@@ -84,10 +82,9 @@ public class CityTable extends AbstractTable {
 
 		outFile.flush();
 		outFile.close();
-
 	}
 
-	// Removes a row from the City Table
+	// removeRow removes a row from the Stadium Table when user provides the cityId
 	public void removeRow(String cityId) {
 		String userInputId = cityId;
 
@@ -115,7 +112,7 @@ public class CityTable extends AbstractTable {
 
 	}
 
-	// Finds a row in the City Table
+	// finds the row(s) in the stadium table based off of the CityID
 	public String findRow(String cityId) {
 		String userInputId = cityId;
 		String output = "Row Not Found.";
