@@ -7,11 +7,11 @@ In this assignment, we will use Exceptions to handle as many possible errors tha
 
 # Instructions
 
-* First, write a Word document named Assign3CrashReport with a list of all the possible ways your Assignment 3 program can crash. What bad inputs—e.g., bad filenames, file contents, user inputs—can cause the program to crash or malfunction?
+* First, write a Word document named Assign3CrashReport with a list of all the possible ways your Assignment 3 program can crash. What bad inputs (e.g. bad filenames, file contents, user inputs) can cause the program to crash or malfunction?
 
 * Make a complete copy of your Assignment 3 program and rename the main class `Assign4Main.java`
 
-* Next, use custom Exception classes—there’s no limit to how many you can have—to handle each possible error so that your program tries to recover from every bad input.
+* Next, use custom Exception classes (there's no limit to how many you can have) to handle each possible error so that your program tries to recover from every bad input.
 
 * In a second document named Assign4ExceptionTests, list each Exception class you created and what problem it solves.
 
