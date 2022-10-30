@@ -99,3 +99,4 @@ Seattle97, 97, 96.77
 Seattle98, 98, 97.77
 Seattle99, 99, 98.77
 Seattle100, 100, 99.77
+Seattle101, 101, 100.77

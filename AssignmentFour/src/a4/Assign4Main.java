@@ -1,6 +1,6 @@
 package a4;
 
-import java.io.FileNotFoundException;
+import java.io.*;
 
 import javax.swing.JOptionPane;
 
@@ -99,7 +99,7 @@ public class Assign4Main {
 	private static void processSelectionStadium(StadiumTable mytable, int userSelection) throws FileNotFoundException {
 		switch (userSelection) {
 		case LOAD_STADIUM:
-			String fileName = JOptionPane.showInputDialog("Please enter the name of the text file to load");
+			String fileName = JOptionPane.showInputDialog("Please enter the name of the text file to load.");
 			System.out.println("Opening the file '" + fileName + "'.");
 			mytable.loadTableFromFile(fileName);
 			break;

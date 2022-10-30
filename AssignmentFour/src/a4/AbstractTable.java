@@ -42,11 +42,18 @@ public abstract class AbstractTable {
 	}
 
 	// CONCRETE METHODS USED BY THE SUBCLASSES
-	// Splits a String of 3 values separated by spaces
-	public String[] splitString(String stringName) {
+	// Splits a String of X elements separated by spaces
+	public String[] splitStringComma(String stringName) {
 		String split[] = stringName.split("[,]\\s+");
 		return split;
 	}
+	
+	// Splits a String of X elements separated by a period
+	public String[] splitFileName(String stringName) {
+		String split[] = stringName.split("\\.");
+		return split;
+	}
+	
 
 	// ABSTRACT METHODS REQUIRED IN SUBCLASSES
 	public abstract void loadTableFromFile(String fileName);
