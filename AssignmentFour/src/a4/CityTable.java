@@ -94,11 +94,12 @@ public class CityTable extends AbstractTable {
 	public void saveTable(String fileName) throws FileNotFoundException {
 		PrintWriter outFile = null;
 		try {
-			String[] valdiateFileName = splitFileName(fileName);
+			String[] validateFileName = splitFileName(fileName);
 			
-			if (valdiateFileName.length != 2) {
+			if (validateFileName.length != 2) {
 				throw new FileExtensionException(fileName);
 			}
+			
 			
 			outFile = new PrintWriter(fileName);
 			if (getTableHeader() == null) {
