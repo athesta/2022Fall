@@ -1,0 +1,2 @@
+Stadiums: Stadium name, City id, Team name, capacity
+City,Id,123,ha
