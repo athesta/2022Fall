@@ -10,24 +10,26 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class StadiumTable extends AbstractTable {
+public class StadiumTable extends AbstractTable<AbstractRow> {
 
 	// DATA MEMBERS
 	private int rowCount = getRowCount();
-	private AbstractRow[] fullTable = getAbFullTable();
+	private List<AbstractRow> fullTable = getAbFullTable();
 	private int numColumns = 4;
 	private String expectedFileType = "Stadium";
 
 	// CLASS METHODS
 	// addRow method adds a row to the Stadium Table
 	public void addRow(String stadiumName, String cityId, String teamName, String capacity) {
+
 		StadiumRow singleRow = new StadiumRow(stadiumName, cityId, teamName, capacity);
 		try {
-			fullTable[rowCount] = singleRow;
+			fullTable.add(singleRow);
 			rowCount++;
 			setRowCount(rowCount);
 		}
@@ -94,6 +96,7 @@ public class StadiumTable extends AbstractTable {
 	// Save the table file
 	public void saveTable(String fileName) throws FileNotFoundException {
 		PrintWriter outFile = null;
+
 		try {
 			String[] validateFileName = splitFileName(fileName);
 
@@ -111,8 +114,8 @@ public class StadiumTable extends AbstractTable {
 				outFile.println(getTableHeader() + "\n");
 			}
 
-			for (int i = 0; i < getRowCount() && fullTable[i] != null; i++) {
-				outFile.println(fullTable[i]);
+			for (int i = 0; i < getRowCount(); i++) {
+				outFile.println(fullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
 			JOptionPane.showMessageDialog(null, ext.getMessage(), "Invalid File Name", JOptionPane.ERROR_MESSAGE);
@@ -124,34 +127,25 @@ public class StadiumTable extends AbstractTable {
 				outFile.close();
 			}
 		}
+
 	}
 
 	// removeRow removes a row from the Stadium Table when user provides the cityId
 	public void removeRow(String cityId) {
 		String userInputId = cityId;
 
-		for (int i = 0; i < rowCount && fullTable[i] != null; i++) {
-			AbstractRow getTableRow = fullTable[i];
+		
+		for (int i = 0; i < rowCount; i++) {
+			AbstractRow getTableRow = fullTable.get(i);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
 			if (split[1].equalsIgnoreCase(userInputId)) {
-				fullTable[i] = null;
+				fullTable.remove(i);
 				rowCount--;
 				setRowCount(rowCount);
 			}
 		}
-
-		for (int j = 0; j < fullTable.length; j++) {
-			if (fullTable[j] == null) {
-				for (int k = j + 1; k < fullTable.length; k++) {
-					fullTable[k - 1] = fullTable[k];
-				}
-				fullTable[fullTable.length - 1] = null;
-				break;
-			}
-		}
-
 	}
 
 	// finds the row(s) in the stadium table based off of the CityID
@@ -159,8 +153,9 @@ public class StadiumTable extends AbstractTable {
 		String userInputId = cityId;
 		String output = "Row Not Found.";
 
-		for (int i = 0; i < rowCount && fullTable[i] != null; i++) {
-			AbstractRow getTableRow = fullTable[i];
+		
+		for (int i = 0; i < rowCount; i++) {
+			AbstractRow getTableRow = fullTable.get(i);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
@@ -170,5 +165,7 @@ public class StadiumTable extends AbstractTable {
 
 		return output;
 	}
+
+
 
 }

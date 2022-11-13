@@ -11,11 +11,11 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
-public class CityTable extends AbstractTable {
+public class CityTable extends AbstractTable<AbstractRow> {
 
 	// DATA MEMBERS
 	private int rowCount = getRowCount();
-	private AbstractRow[] fullTable = getAbFullTable();
+	private List<AbstractRow> fullTable = getAbFullTable();
 	private int numColumns = 3;
 	private String expectedFileType = "City";
 
@@ -23,8 +23,8 @@ public class CityTable extends AbstractTable {
 	public void addRow(String city, String cityId, String population) {
 		CityRow singleRow = new CityRow(city, cityId, population);
 		try {
-
-			fullTable[rowCount] = singleRow;
+			
+			fullTable.add(singleRow);
 			rowCount++;
 			setRowCount(rowCount);
 		}
@@ -111,8 +111,8 @@ public class CityTable extends AbstractTable {
 				outFile.println(getTableHeader() + "\n");
 			}
 	
-			for (int i = 0; i < getRowCount() && fullTable[i] != null; i++) {
-				outFile.println(fullTable[i]);
+			for (int i = 0; i < getRowCount() ; i++) {
+				outFile.println(fullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
 			JOptionPane.showMessageDialog(null, ext.getMessage(), "Invalid File Name", JOptionPane.ERROR_MESSAGE);
@@ -131,25 +131,14 @@ public class CityTable extends AbstractTable {
 	public void removeRow(String cityId) {
 		String userInputId = cityId;
 
-		for (int i = 0; i < rowCount && fullTable[i] != null; i++) {
-			AbstractRow getTableRow = fullTable[i];
+		for (int i = 0; i < rowCount; i++) {
+			AbstractRow getTableRow = fullTable.get(i);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
-
 			if (split[1].equalsIgnoreCase(userInputId)) {
-				fullTable[i] = null;
+				fullTable.remove(i);
 				rowCount--;
 				setRowCount(rowCount);
-			}
-		}
-
-		for (int j = 0; j < fullTable.length; j++) {
-			if (fullTable[j] == null) {
-				for (int k = j + 1; k < fullTable.length; k++) {
-					fullTable[k - 1] = fullTable[k];
-				}
-				fullTable[fullTable.length - 1] = null;
-				break;
 			}
 		}
 
@@ -160,8 +149,8 @@ public class CityTable extends AbstractTable {
 		String userInputId = cityId;
 		String output = "Row Not Found.";
 
-		for (int i = 0; i < rowCount && fullTable[i] != null; i++) {
-			AbstractRow getTableRow = fullTable[i];
+		for (int i = 0; i < rowCount; i++) {
+			AbstractRow getTableRow = fullTable.get(i);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
@@ -171,5 +160,7 @@ public class CityTable extends AbstractTable {
 
 		return output;
 	}
+
+
 
 }

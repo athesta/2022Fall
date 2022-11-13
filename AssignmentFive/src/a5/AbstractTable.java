@@ -9,13 +9,12 @@ package a5;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public abstract class AbstractTable <T> extends AbstractRow {
+public abstract class AbstractTable <T extends AbstractRow> {
 
 	// DATA MEMBERS
 	private String tableHeader;
 	//private AbstractRow[] abFullTable = new AbstractRow[100];
-	//private List<T> abFullTable = new ArrayList<>();
-	private T abFullTable2;
+	List<AbstractRow> abFullTable = new ArrayList<>(); 
 	private int rowCount = 0;
 
 	// GETTERS
@@ -23,8 +22,8 @@ public abstract class AbstractTable <T> extends AbstractRow {
 		return tableHeader;
 	}
 
-	public T getAbFullTable() {
-		return abFullTable2;
+	public List<AbstractRow> getAbFullTable() {
+		return abFullTable;
 	}
 
 	public int getRowCount() {
@@ -36,8 +35,8 @@ public abstract class AbstractTable <T> extends AbstractRow {
 		this.tableHeader = tableHeader;
 	}
 
-	public void setAbFullTable(T abFullTable2) {
-		this.abFullTable2 = abFullTable2;
+	public void setAbFullTable(List<AbstractRow> abFullTable) {
+		this.abFullTable =  abFullTable;
 	}
 
 	public void setRowCount(int rowCount) {
@@ -56,6 +55,9 @@ public abstract class AbstractTable <T> extends AbstractRow {
 		String split[] = stringName.split("\\.");
 		return split;
 	}
+	
+	
+
 	
 
 	// ABSTRACT METHODS REQUIRED IN SUBCLASSES
