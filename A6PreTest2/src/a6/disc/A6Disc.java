@@ -1,7 +1,7 @@
 package a6.disc;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 class ARow {
 	private String name;
@@ -10,6 +10,10 @@ class ARow {
 		name = n;
 		zip  = z;
 	}
+	public String getName() {
+		return name;
+	}
+	
 }
 
 class BRow {
@@ -19,6 +23,11 @@ class BRow {
 		name = n;
 		area = a;
 	}
+	public String getName() {
+		return name;
+	}
+	
+	
 }
 
 class CRow {
@@ -60,8 +69,9 @@ public class A6Disc {
 		// Use a map to store elements of table b that need to be joined
 		// - only add a row from b if the city name appears in a
 		// Map<String,BRow> bmap = new HashMap<>();
-		for (BRow br : b) {
 			
+		for (BRow br : b) {
+
 		}
 		
 		// Do a join
