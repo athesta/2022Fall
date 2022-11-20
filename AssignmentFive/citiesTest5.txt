@@ -1,0 +1,5 @@
+My Cities: City, city id, population in millions
+
+la crosse, 700, .05
+west salem, 800, .005
+new york City, 1, 1.2
