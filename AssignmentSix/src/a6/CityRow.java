@@ -6,7 +6,9 @@
 
 package a6;
 
-public class CityRow extends AbstractRow {
+import java.util.*;
+
+public class CityRow<T> extends AbstractRow implements Comparator<T>, Comparable<T> {
 	
 	//Data Members
 	private String[] rowCity = new String [3];
@@ -40,6 +42,20 @@ public class CityRow extends AbstractRow {
 			return true;
 		else return false;
 			}
+
+	//From Comparator
+	@Override
+	public int compare(T o1, T o2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	//From Comparable
+	@Override
+	public int compareTo(T o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
 

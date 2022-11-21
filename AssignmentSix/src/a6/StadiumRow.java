@@ -6,7 +6,9 @@
 
 package a6;
 
-public class StadiumRow extends AbstractRow {
+import java.util.*;
+
+public class StadiumRow<T> extends AbstractRow implements Comparator<T>, Comparable<T>{
 	
 	//Data Members
 	private String[] rowStadium = new String [4];
@@ -32,6 +34,20 @@ public class StadiumRow extends AbstractRow {
 	//toString method
 	public String toString() {
 		return String.join(", ", rowStadium); 
+	}
+
+	//From Comparator
+	@Override
+	public int compareTo(T o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	//From Comparable
+	@Override
+	public int compare(T o1, T o2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	
