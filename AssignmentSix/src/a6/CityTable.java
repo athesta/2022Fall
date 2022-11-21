@@ -23,7 +23,7 @@ public class CityTable extends AbstractTable<AbstractRow> {
 	public void addRow(String city, String cityId, String population) {
 		CityRow singleRow = new CityRow(city, cityId, population);
 		try {
-			
+
 			fullTable.add(singleRow);
 			rowCount++;
 			setRowCount(rowCount);
@@ -95,29 +95,28 @@ public class CityTable extends AbstractTable<AbstractRow> {
 		PrintWriter outFile = null;
 		try {
 			String[] validateFileName = splitFileName(fileName);
-			
+
 			if (validateFileName.length != 2) {
 				throw new FileExtensionException(fileName);
 			}
-			
-			
+
 			outFile = new PrintWriter(fileName);
 			if (getTableHeader() == null) {
 				setTableHeader("My Cities: City, city id, population in millions");
 				outFile.println(getTableHeader() + "\n");
 			}
-	
+
 			else {
 				outFile.println(getTableHeader() + "\n");
 			}
-	
-			for (int i = 0; i < getRowCount() ; i++) {
+
+			for (int i = 0; i < getRowCount(); i++) {
 				outFile.println(fullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
 			JOptionPane.showMessageDialog(null, ext.getMessage(), "Invalid File Name", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 		finally {
 			if (outFile != null) {
 				outFile.flush();
@@ -129,38 +128,40 @@ public class CityTable extends AbstractTable<AbstractRow> {
 
 	// Removes a row from the City Table
 	public void removeRow(String cityId) {
-		String userInputId = cityId;
-
-		for (int i = 0; i < rowCount; i++) {
-			AbstractRow getTableRow = fullTable.get(i);
-			String getTableRowString = getTableRow.toString();
-			String[] split = splitStringComma(getTableRowString);
-			if (split[1].equalsIgnoreCase(userInputId)) {
-				fullTable.remove(i);
-				rowCount--;
-				setRowCount(rowCount);
-			}
-		}
+		// String userInputId = cityId;
+		int rowId = searchRow(cityId);
+		fullTable.remove(rowId);
+		setRowCount(rowCount - 1);
 
 	}
 
-	// Finds a row in the City Table
+	// Displays the output of the row to the user in a String
 	public String findRow(String cityId) {
-		String userInputId = cityId;
-		String output = "Row Not Found.";
+		return displayRow(searchRow(cityId));
+	}
 
-		for (int i = 0; i < rowCount; i++) {
-			AbstractRow getTableRow = fullTable.get(i);
+	// Searches rows in the City Table - Sequential Search
+	public int searchRow(String cityId) {
+		String userInputId = cityId;
+		// String output = "Row Not Found.";
+		boolean found = false;
+		int loc = 0;
+		AbstractRow getTableRow;
+
+		while (loc < fullTable.size() && !found) {
+			getTableRow = fullTable.get(loc);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
 			if (split[1].equalsIgnoreCase(userInputId))
-				output = getTableRowString;
+				found = true;
+			else
+				loc++;
 		}
-
-		return output;
+		if (found)
+			return loc;
+		else
+			return -1;
 	}
-
-
 
 }

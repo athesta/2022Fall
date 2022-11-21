@@ -132,40 +132,38 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 
 	// removeRow removes a row from the Stadium Table when user provides the cityId
 	public void removeRow(String cityId) {
-		String userInputId = cityId;
-
-		
-		for (int i = 0; i < rowCount; i++) {
-			AbstractRow getTableRow = fullTable.get(i);
-			String getTableRowString = getTableRow.toString();
-			String[] split = splitStringComma(getTableRowString);
-
-			if (split[1].equalsIgnoreCase(userInputId)) {
-				fullTable.remove(i);
-				rowCount--;
-				setRowCount(rowCount);
-			}
-		}
+		int rowId = searchRow(cityId);
+		fullTable.remove(rowId);
+		setRowCount(rowCount - 1);
 	}
 
-	// finds the row(s) in the stadium table based off of the CityID
+	// Displays the output of the row to the user in a String
 	public String findRow(String cityId) {
-		String userInputId = cityId;
-		String output = "Row Not Found.";
+		return displayRow(searchRow(cityId));
+	}
 
-		
-		for (int i = 0; i < rowCount; i++) {
-			AbstractRow getTableRow = fullTable.get(i);
+	// Searches rows in the Stadium Table - Sequential Search
+	public int searchRow(String cityId) {
+		String userInputId = cityId;
+		// String output = "Row Not Found.";
+		boolean found = false;
+		int loc = 0;
+		AbstractRow getTableRow;
+
+		while (loc < fullTable.size() && !found) {
+			getTableRow = fullTable.get(loc);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
 			if (split[1].equalsIgnoreCase(userInputId))
-				output = getTableRowString;
+				found = true;
+			else
+				loc++;
 		}
-
-		return output;
+		if (found)
+			return loc;
+		else
+			return -1;
 	}
-
-
 
 }

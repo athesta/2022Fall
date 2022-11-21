@@ -14,6 +14,10 @@ class ARow {
 		return name;
 	}
 	
+	public int getZip() {
+		return zip;
+	}
+	
 }
 
 class BRow {
@@ -27,6 +31,9 @@ class BRow {
 		return name;
 	}
 	
+	public int getArea() {
+		return area;
+	}
 	
 }
 
@@ -71,6 +78,7 @@ public class A6Disc {
 		// Map<String,BRow> bmap = new HashMap<>();
 			
 		for (BRow br : b) {
+			System.out.println(br.getName() + " Jen test \n");
 
 		}
 		

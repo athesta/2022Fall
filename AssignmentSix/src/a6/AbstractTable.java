@@ -13,7 +13,6 @@ public abstract class AbstractTable <T extends AbstractRow> {
 
 	// DATA MEMBERS
 	private String tableHeader;
-	//private AbstractRow[] abFullTable = new AbstractRow[100];
 	List<AbstractRow> abFullTable = new ArrayList<>(); 
 	private int rowCount = 0;
 
@@ -56,10 +55,16 @@ public abstract class AbstractTable <T extends AbstractRow> {
 		return split;
 	}
 	
+	public String displayRow(int searchResults) {
+		String results;
+		if (searchResults == -1) {
+			results = "Row not found";
+			return results;}
+		else return abFullTable.get(searchResults).toString();
+	}
 	
-
+	//
 	
-
 	// ABSTRACT METHODS REQUIRED IN SUBCLASSES
 	public abstract void loadTableFromFile(String fileName);
 
@@ -67,6 +72,7 @@ public abstract class AbstractTable <T extends AbstractRow> {
 
 	public abstract void removeRow(String cityId);
 
-	public abstract String findRow(String cityId);
-
+	public abstract int searchRow(String cityId);
+	
+	
 }

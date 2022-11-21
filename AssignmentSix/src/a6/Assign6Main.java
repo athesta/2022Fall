@@ -88,6 +88,7 @@ public class Assign6Main {
 			break;
 		case FIND_ROW_CITY:
 			cityId = JOptionPane.showInputDialog("Please enter the city identifier of the city you want to find.");
+			//int intId = Integer.parseInt(cityId);
 			JOptionPane.showMessageDialog(null, mytable.findRow(cityId)); 
 			break;
 
