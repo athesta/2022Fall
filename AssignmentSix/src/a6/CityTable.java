@@ -135,12 +135,14 @@ public class CityTable extends AbstractTable<AbstractRow> {
 
 	}
 
-	// Displays the output of the row to the user in a String
+	// findRow is calls concrete method 'displayRow'
+	//This displays the output of the row to the user in a String
 	public String findRow(String cityId) {
 		return displayRow(searchRow(cityId));
 	}
 
 	// Searches rows in the City Table - Sequential Search
+	// returns the index of the row location
 	public int searchRow(String cityId) {
 		String userInputId = cityId;
 		// String output = "Row Not Found.";
@@ -163,5 +165,16 @@ public class CityTable extends AbstractTable<AbstractRow> {
 		else
 			return -1;
 	}
+
+	@Override
+	public void sortTable() {
+	
+			
+			
+				
+			
+	}
+
+
 
 }

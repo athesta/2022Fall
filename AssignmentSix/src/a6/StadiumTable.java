@@ -166,4 +166,10 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 			return -1;
 	}
 
+	@Override
+	public void sortTable() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -46,6 +46,11 @@ class CRow {
 		zip  = z;
 		area = a;
 	}
+	
+	public String toString() {
+		return name + " " + zip + " " + area;
+		}
+	
 }
 
 public class A6Disc {
@@ -75,11 +80,15 @@ public class A6Disc {
 
 		// Use a map to store elements of table b that need to be joined
 		// - only add a row from b if the city name appears in a
-		// Map<String,BRow> bmap = new HashMap<>();
-			
-		for (BRow br : b) {
-			System.out.println(br.getName() + " Jen test \n");
+		
+		Map<String, BRow> bmap = new HashMap<>();
 
+		for (BRow br : b) {
+			for (ARow ar : a) {
+				if (br.getName().compareTo(ar.getName()) == 0) {
+					bmap.put(br.getName(), br);
+				}
+			}
 		}
 		
 		// Do a join
@@ -91,8 +100,16 @@ public class A6Disc {
 		 */
 		// Ready for the join
 		List<CRow> c = new ArrayList<>();
+		for(ARow ar : a){
+		     if(bmap.containsKey(ar.getName())) {
+		          c.add(new CRow(ar.getName(), ar.getZip(), bmap.get(ar.getName()).getArea()));
+		     }
+		}
 		
-		System.out.println( "Join is: " + c );
+		System.out.println( "Join is: ");
+		for (CRow cr:c) {
+			System.out.println(cr);
+		}
 	}
 
 }

@@ -55,6 +55,7 @@ public abstract class AbstractTable <T extends AbstractRow> {
 		return split;
 	}
 	
+	// displays the row content in a user-friendly format
 	public String displayRow(int searchResults) {
 		String results;
 		if (searchResults == -1) {
@@ -73,6 +74,8 @@ public abstract class AbstractTable <T extends AbstractRow> {
 	public abstract void removeRow(String cityId);
 
 	public abstract int searchRow(String cityId);
+	
+	public abstract void sortTable();
 	
 	
 }

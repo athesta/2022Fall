@@ -29,6 +29,8 @@ public class CityRow<T> extends AbstractRow implements Comparator<T>, Comparable
 	public void setRowCity(String[] rowCity) {
 		this.rowCity = rowCity;
 	}
+	
+	
 
 	//Override Abstract methods
 	//toString
