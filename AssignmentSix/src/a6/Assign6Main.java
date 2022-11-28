@@ -79,7 +79,7 @@ public class Assign6Main {
 			String city = JOptionPane.showInputDialog("Please enter the name of the city you want to add to the table");
 			String cityId = JOptionPane.showInputDialog("Please enter the ID for " + city);
 			String population = JOptionPane.showInputDialog("Please enter the population for " + city);
-			mytable.addRow(city, cityId, population); 
+			mytable.addRow(city,cityId,population); 
 			break;
 		case REMOVE_ROW_CITY:
 			cityId = JOptionPane

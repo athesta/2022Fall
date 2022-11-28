@@ -50,5 +50,26 @@ public class StadiumRow<T> extends AbstractRow implements Comparator<T>, Compara
 		return 0;
 	}
 
+
+	@Override
+	public String getCityId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String getCityName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String getPopulation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

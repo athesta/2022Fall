@@ -6,10 +6,11 @@
 
 package a6;
 
-import java.io.*;
-import java.util.*;
+import java.io.*;import java.util.*;
 
 import javax.swing.JOptionPane;
+
+
 
 public class CityTable extends AbstractTable<AbstractRow> {
 
@@ -27,6 +28,8 @@ public class CityTable extends AbstractTable<AbstractRow> {
 			fullTable.add(singleRow);
 			rowCount++;
 			setRowCount(rowCount);
+			sortTable();
+			System.out.println(fullTable.toString());
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException oob) {
@@ -168,13 +171,26 @@ public class CityTable extends AbstractTable<AbstractRow> {
 
 	@Override
 	public void sortTable() {
-	
+	//[[La Crosse, 01, 5000], [West Salem, 13, 2000]]				
+		final int length = fullTable.size();
+		CityRow compRow1;
+		CityRow compRow2;
+		for (int counter = 0; counter < length-1; counter ++) {
+			for (int index = 0; index < length-1-counter; index++) {
+				compRow1 = (CityRow) fullTable.get(index);
+				compRow2 = (CityRow) fullTable.get(index + 1);
+				if(compRow1.getCityId().compareTo(compRow2.getCityId())>0){
+					CityRow temp=new CityRow(compRow1.getCityName(),compRow1.getCityId(), compRow1.getPopulation());
+                    compRow1 = compRow2;
+                    compRow2 = temp;
+                    fullTable.set(index, compRow1);
+                    fullTable.set(index+1, compRow2);
+                    System.out.println(fullTable.toString());
+					
+				}
 			
-			
-				
-			
+		}
 	}
-
-
+}
 
 }

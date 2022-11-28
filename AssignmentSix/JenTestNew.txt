@@ -1,0 +1,5 @@
+My Cities: City, city id, population in millions
+
+po, 370, 50
+abc, 500, 50000
+vcx, 8, 9000
