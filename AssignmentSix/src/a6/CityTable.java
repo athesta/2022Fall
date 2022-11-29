@@ -29,7 +29,7 @@ public class CityTable extends AbstractTable<AbstractRow> {
 			rowCount++;
 			setRowCount(rowCount);
 			sortTable();
-			System.out.println(fullTable.toString());
+			
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException oob) {
@@ -179,13 +179,12 @@ public class CityTable extends AbstractTable<AbstractRow> {
 			for (int index = 0; index < length-1-counter; index++) {
 				compRow1 = (CityRow) fullTable.get(index);
 				compRow2 = (CityRow) fullTable.get(index + 1);
-				if(compRow1.getCityId().compareTo(compRow2.getCityId())>0){
+				if(Integer.parseInt(compRow1.getCityId())>Integer.parseInt(compRow2.getCityId())){
 					CityRow temp=new CityRow(compRow1.getCityName(),compRow1.getCityId(), compRow1.getPopulation());
-                    compRow1 = compRow2;
-                    compRow2 = temp;
-                    fullTable.set(index, compRow1);
-                    fullTable.set(index+1, compRow2);
-                    System.out.println(fullTable.toString());
+                    fullTable.set(index, compRow2);
+                    fullTable.set(index+1, temp);
+                    //testing things
+                    //System.out.println(fullTable.toString());
 					
 				}
 			

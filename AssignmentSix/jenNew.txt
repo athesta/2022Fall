@@ -1,0 +1,5 @@
+My Cities: City, city id, population in millions
+
+new york city, 5, 1000000000
+sparta, 7, 10000
+La crosse, 500, 50000
