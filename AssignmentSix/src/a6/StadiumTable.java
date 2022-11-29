@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class StadiumTable extends AbstractTable<AbstractRow> {
 
 	// DATA MEMBERS
-	private int rowCount = getRowCount();
+	// private int rowCount = getRowCount();
 	private List<AbstractRow> fullTable = getAbFullTable();
 	private int numColumns = 4;
 	private String expectedFileType = "Stadium";
@@ -30,8 +30,9 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 		StadiumRow singleRow = new StadiumRow(stadiumName, cityId, teamName, capacity);
 		try {
 			fullTable.add(singleRow);
-			rowCount++;
-			setRowCount(rowCount);
+			// rowCount++;
+			// setRowCount(rowCount);
+			sortTable();
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException oob) {
@@ -66,7 +67,11 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 					addRow(rowElements[0], rowElements[1], rowElements[2], rowElements[3]);
 
 				}
-			} catch (java.util.NoSuchElementException emptyFile) {
+
+				sortTable();
+			}
+
+			catch (java.util.NoSuchElementException emptyFile) {
 				JOptionPane.showMessageDialog(null, "Your file is empty. Please load a different file.", "Empty File",
 						JOptionPane.ERROR_MESSAGE);
 				emptyFile.printStackTrace();
@@ -114,7 +119,7 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 				outFile.println(getTableHeader() + "\n");
 			}
 
-			for (int i = 0; i < getRowCount(); i++) {
+			for (int i = 0; i < fullTable.size(); i++) {
 				outFile.println(fullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
@@ -134,7 +139,7 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 	public void removeRow(String cityId) {
 		int rowId = searchRow(cityId);
 		fullTable.remove(rowId);
-		setRowCount(rowCount - 1);
+		// setRowCount(rowCount - 1);
 	}
 
 	// Displays the output of the row to the user in a String
@@ -168,8 +173,26 @@ public class StadiumTable extends AbstractTable<AbstractRow> {
 
 	@Override
 	public void sortTable() {
-		// TODO Auto-generated method stub
-		
+		final int length = fullTable.size();
+		StadiumRow compRow1;
+		StadiumRow compRow2;
+		for (int counter = 0; counter < length - 1; counter++) {
+			for (int index = 0; index < length - 1 - counter; index++) {
+				compRow1 = (StadiumRow) fullTable.get(index);
+				compRow2 = (StadiumRow) fullTable.get(index + 1);
+				if (Integer.parseInt(compRow1.getStadiumCityId()) > Integer.parseInt(compRow2.getStadiumCityId())) {
+					StadiumRow temp = new StadiumRow(compRow1.getStadiumName(), compRow1.getStadiumCityId(),
+							compRow1.getTeamName(), compRow1.getStadiumCapcity());
+					fullTable.set(index, compRow2);
+					fullTable.set(index + 1, temp);
+					// testing things
+					// System.out.println(fullTable.toString());
+
+				}
+
+			}
+		}
+
 	}
 
 }

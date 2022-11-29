@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class CityTable extends AbstractTable<AbstractRow> {
 
 	// DATA MEMBERS
-	private int rowCount = getRowCount();
+	//private int rowCount = getRowCount();
 	private List<AbstractRow> fullTable = getAbFullTable();
 	private int numColumns = 3;
 	private String expectedFileType = "City";
@@ -26,8 +26,8 @@ public class CityTable extends AbstractTable<AbstractRow> {
 		try {
 
 			fullTable.add(singleRow);
-			rowCount++;
-			setRowCount(rowCount);
+			//rowCount++;
+			//setRowCount(rowCount);
 			sortTable();
 			
 		}
@@ -64,6 +64,7 @@ public class CityTable extends AbstractTable<AbstractRow> {
 
 					addRow(rowElements[0], rowElements[1], rowElements[2]);
 				}
+				sortTable();
 			}
 
 			catch (java.util.NoSuchElementException emptyFile) {
@@ -113,7 +114,7 @@ public class CityTable extends AbstractTable<AbstractRow> {
 				outFile.println(getTableHeader() + "\n");
 			}
 
-			for (int i = 0; i < getRowCount(); i++) {
+			for (int i = 0; i < fullTable.size(); i++) {
 				outFile.println(fullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
@@ -131,10 +132,9 @@ public class CityTable extends AbstractTable<AbstractRow> {
 
 	// Removes a row from the City Table
 	public void removeRow(String cityId) {
-		// String userInputId = cityId;
 		int rowId = searchRow(cityId);
 		fullTable.remove(rowId);
-		setRowCount(rowCount - 1);
+		//setRowCount(rowCount - 1);
 
 	}
 
@@ -179,8 +179,8 @@ public class CityTable extends AbstractTable<AbstractRow> {
 			for (int index = 0; index < length-1-counter; index++) {
 				compRow1 = (CityRow) fullTable.get(index);
 				compRow2 = (CityRow) fullTable.get(index + 1);
-				if(Integer.parseInt(compRow1.getCityId())>Integer.parseInt(compRow2.getCityId())){
-					CityRow temp=new CityRow(compRow1.getCityName(),compRow1.getCityId(), compRow1.getPopulation());
+				if(Integer.parseInt(compRow1.getCityCityId())>Integer.parseInt(compRow2.getCityCityId())){
+					CityRow temp=new CityRow(compRow1.getCityName(),compRow1.getCityCityId(), compRow1.getPopulation());
                     fullTable.set(index, compRow2);
                     fullTable.set(index+1, temp);
                     //testing things

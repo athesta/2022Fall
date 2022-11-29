@@ -8,12 +8,12 @@ package a6;
 
 import java.util.*;
 
-public class StadiumRow<T> extends AbstractRow implements Comparator<T>, Comparable<T>{
-	
-	//Data Members
-	private String[] rowStadium = new String [4];
-	
-	//Constructor
+public class StadiumRow extends AbstractRow implements Comparator<StadiumRow>, Comparable<StadiumRow> {
+
+	// Data Members
+	private String[] rowStadium = new String[4];
+
+	// Constructor
 	public StadiumRow(String stadiumName, String cityId, String teamName, String capacity) {
 		rowStadium[0] = stadiumName;
 		rowStadium[1] = cityId;
@@ -21,55 +21,48 @@ public class StadiumRow<T> extends AbstractRow implements Comparator<T>, Compara
 		rowStadium[3] = capacity;
 	}
 
-	
-	//IMPLEMENT ABSTRACT METHODS
-	//Equals method checks if two rows are the same
-	//unsure what to use this for?
+	// Getters & Setters
+
+	public String getStadiumName() {
+		return rowStadium[0];
+	}
+
+	public String getStadiumCityId() {
+		return rowStadium[1];
+	}
+
+	public String getTeamName() {
+		return rowStadium[2];
+	}
+
+	public String getStadiumCapcity() {
+		return rowStadium[3];
+	}
+
+	// IMPLEMENT ABSTRACT METHODS
+	// Equals method checks if two rows are the same
+	// unsure what to use this for?
 	public boolean equals(String input) {
-		if (rowStadium[0]==input)
+		if (rowStadium[0] == input)
 			return true;
 		return false;
 	}
-	
-	//toString method
+
+	// toString method
 	public String toString() {
-		return String.join(", ", rowStadium); 
+		return String.join(", ", rowStadium);
 	}
 
-	//From Comparator
 	@Override
-	public int compareTo(T o) {
+	public int compareTo(StadiumRow o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	//From Comparable
 	@Override
-	public int compare(T o1, T o2) {
+	public int compare(StadiumRow o1, StadiumRow o2) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-
-	@Override
-	public String getCityId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public String getCityName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public String getPopulation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 }

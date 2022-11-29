@@ -21,13 +21,13 @@ public class CityRow extends AbstractRow implements Comparator<CityRow>, Compara
 
 	}
 
-	// Getters & Setters public String[] getRowCity() { return rowCity; }
+	// Getters & Setters 
 
 	public void setRowCity(String[] rowCity) {
 		this.rowCity = rowCity;
 	}
 
-	public String getCityId() {
+	public String getCityCityId() {
 		return rowCity[1];
 	}
 	
