@@ -64,7 +64,8 @@ public class CityRow extends AbstractRow implements Comparator<CityRow>, Compara
 	// From Comparable
 	@Override
 	public int compareTo(CityRow o) {
-		return 0;
+		int cityIdCompare = this.rowCity[1].compareToIgnoreCase(o.getCityCityId());
+			return cityIdCompare;
 	}
 
 }

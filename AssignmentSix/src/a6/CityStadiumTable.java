@@ -1,37 +1,11 @@
 package a6;
 
-import java.io.FileNotFoundException;
+import java.util.*;
 
-public class CityStadiumTable extends AbstractTable {
+public class CityStadiumTable  {
 
-	@Override
-	public void loadTableFromFile(String fileName) {
-		// TODO Auto-generated method stub
-		
-	}
+	private List<CityStadiumRow> citySadiumTable = new ArrayList();
+	
 
-	@Override
-	public void saveTable(String fileName) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void removeRow(String cityId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int searchRow(String cityId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void sortTable() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

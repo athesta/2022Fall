@@ -26,7 +26,7 @@ public class CityTable extends AbstractTable<CityRow> {
 
 			cityFullTable.add(singleRow);
 			sortTable();
-
+			
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException oob) {
@@ -176,13 +176,14 @@ public class CityTable extends AbstractTable<CityRow> {
 			for (int index = 0; index < length - 1 - counter; index++) {
 				compRow1 = (CityRow) cityFullTable.get(index);
 				compRow2 = (CityRow) cityFullTable.get(index + 1);
-				if (Integer.parseInt(compRow1.getCityCityId()) > Integer.parseInt(compRow2.getCityCityId())) {
+				//if (Integer.parseInt(compRow1.getCityCityId()) > Integer.parseInt(compRow2.getCityCityId())) {
+				if (compRow1.compareTo(compRow2)>0) {
 					CityRow temp = new CityRow(compRow1.getCityName(), compRow1.getCityCityId(),
 							compRow1.getPopulation());
 					cityFullTable.set(index, compRow2);
 					cityFullTable.set(index + 1, temp);
 					// testing things
-					// System.out.println(cityFullTable.toString());
+					//System.out.println(cityFullTable.toString());
 
 				}
 
@@ -193,13 +194,13 @@ public class CityTable extends AbstractTable<CityRow> {
 	public void joinTables(StadiumTable o) {
 		
 		
-		Map<String, StadiumTable> cityMap = new HashMap<>();
+		
 		
 //		for (StadiumTable st : o) {
 //			for (CityTable ct : cityFullTable) {
 				
-			}
+			
 		}
 	}
 
-}
+
