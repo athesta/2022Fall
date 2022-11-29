@@ -6,17 +6,16 @@
 
 package a6;
 
-import java.io.*;import java.util.*;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.JOptionPane;
 
-
-
-public class CityTable extends AbstractTable<AbstractRow> {
+public class CityTable extends AbstractTable<CityRow> {
 
 	// DATA MEMBERS
-	//private int rowCount = getRowCount();
-	private List<AbstractRow> fullTable = getAbFullTable();
+	// private int rowCount = getRowCount();
+	private List<AbstractRow> cityFullTable = getAbFullTable();
 	private int numColumns = 3;
 	private String expectedFileType = "City";
 
@@ -25,11 +24,9 @@ public class CityTable extends AbstractTable<AbstractRow> {
 		CityRow singleRow = new CityRow(city, cityId, population);
 		try {
 
-			fullTable.add(singleRow);
-			//rowCount++;
-			//setRowCount(rowCount);
+			cityFullTable.add(singleRow);
 			sortTable();
-			
+
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException oob) {
@@ -114,8 +111,8 @@ public class CityTable extends AbstractTable<AbstractRow> {
 				outFile.println(getTableHeader() + "\n");
 			}
 
-			for (int i = 0; i < fullTable.size(); i++) {
-				outFile.println(fullTable.get(i));
+			for (int i = 0; i < cityFullTable.size(); i++) {
+				outFile.println(cityFullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
 			JOptionPane.showMessageDialog(null, ext.getMessage(), "Invalid File Name", JOptionPane.ERROR_MESSAGE);
@@ -133,13 +130,13 @@ public class CityTable extends AbstractTable<AbstractRow> {
 	// Removes a row from the City Table
 	public void removeRow(String cityId) {
 		int rowId = searchRow(cityId);
-		fullTable.remove(rowId);
-		//setRowCount(rowCount - 1);
+		cityFullTable.remove(rowId);
+		// setRowCount(rowCount - 1);
 
 	}
 
 	// findRow is calls concrete method 'displayRow'
-	//This displays the output of the row to the user in a String
+	// This displays the output of the row to the user in a String
 	public String findRow(String cityId) {
 		return displayRow(searchRow(cityId));
 	}
@@ -153,8 +150,8 @@ public class CityTable extends AbstractTable<AbstractRow> {
 		int loc = 0;
 		AbstractRow getTableRow;
 
-		while (loc < fullTable.size() && !found) {
-			getTableRow = fullTable.get(loc);
+		while (loc < cityFullTable.size() && !found) {
+			getTableRow = cityFullTable.get(loc);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
@@ -171,25 +168,38 @@ public class CityTable extends AbstractTable<AbstractRow> {
 
 	@Override
 	public void sortTable() {
-	//[[La Crosse, 01, 5000], [West Salem, 13, 2000]]				
-		final int length = fullTable.size();
+		// [[La Crosse, 01, 5000], [West Salem, 13, 2000]]
+		final int length = cityFullTable.size();
 		CityRow compRow1;
 		CityRow compRow2;
-		for (int counter = 0; counter < length-1; counter ++) {
-			for (int index = 0; index < length-1-counter; index++) {
-				compRow1 = (CityRow) fullTable.get(index);
-				compRow2 = (CityRow) fullTable.get(index + 1);
-				if(Integer.parseInt(compRow1.getCityCityId())>Integer.parseInt(compRow2.getCityCityId())){
-					CityRow temp=new CityRow(compRow1.getCityName(),compRow1.getCityCityId(), compRow1.getPopulation());
-                    fullTable.set(index, compRow2);
-                    fullTable.set(index+1, temp);
-                    //testing things
-                    //System.out.println(fullTable.toString());
-					
+		for (int counter = 0; counter < length - 1; counter++) {
+			for (int index = 0; index < length - 1 - counter; index++) {
+				compRow1 = (CityRow) cityFullTable.get(index);
+				compRow2 = (CityRow) cityFullTable.get(index + 1);
+				if (Integer.parseInt(compRow1.getCityCityId()) > Integer.parseInt(compRow2.getCityCityId())) {
+					CityRow temp = new CityRow(compRow1.getCityName(), compRow1.getCityCityId(),
+							compRow1.getPopulation());
+					cityFullTable.set(index, compRow2);
+					cityFullTable.set(index + 1, temp);
+					// testing things
+					// System.out.println(cityFullTable.toString());
+
 				}
-			
+
+			}
 		}
 	}
-}
+	
+	public void joinTables(StadiumTable o) {
+		
+		
+		Map<String, StadiumTable> cityMap = new HashMap<>();
+		
+//		for (StadiumTable st : o) {
+//			for (CityTable ct : cityFullTable) {
+				
+			}
+		}
+	}
 
 }
