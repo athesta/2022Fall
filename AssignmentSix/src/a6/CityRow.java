@@ -21,7 +21,7 @@ public class CityRow extends AbstractRow implements Comparator<CityRow>, Compara
 
 	}
 
-	// Getters & Setters 
+	// Getters & Setters
 
 	public void setRowCity(String[] rowCity) {
 		this.rowCity = rowCity;
@@ -30,11 +30,11 @@ public class CityRow extends AbstractRow implements Comparator<CityRow>, Compara
 	public String getCityCityId() {
 		return rowCity[1];
 	}
-	
+
 	public String getCityName() {
 		return rowCity[0];
 	}
-	
+
 	public String getPopulation() {
 		return rowCity[2];
 	}
@@ -65,7 +65,7 @@ public class CityRow extends AbstractRow implements Comparator<CityRow>, Compara
 	@Override
 	public int compareTo(CityRow o) {
 		int cityIdCompare = this.rowCity[1].compareToIgnoreCase(o.getCityCityId());
-			return cityIdCompare;
+		return cityIdCompare;
 	}
 
 }

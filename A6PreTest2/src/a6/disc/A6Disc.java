@@ -3,7 +3,7 @@ package a6.disc;
 import java.util.*;
 
 
-class ARow {
+class ARow { //city row
 	private String name;
 	private int zip;
 	public ARow(String n, int z) {
@@ -20,7 +20,7 @@ class ARow {
 	
 }
 
-class BRow {
+class BRow { //stadium row
 	private String name;
 	private int    area;
 	public BRow(String n, int a) {
@@ -37,7 +37,7 @@ class BRow {
 	
 }
 
-class CRow {
+class CRow { //citystadium row
 	private String name;
 	private int    zip;
 	private int    area;
@@ -57,7 +57,7 @@ public class A6Disc {
 
 	public static void main(String[] args) {
 		// Set up Table a
-		List<ARow> a = new ArrayList<>();
+		List<ARow> a = new ArrayList<>(); //city table
 		/* Table a stores zip codes:
 		 *   Adell	53001
 		 *   Clyman	53016
@@ -68,7 +68,7 @@ public class A6Disc {
 		a.add( new ARow("Lomira", 53048 ));
 		
 		// Set up Table b
-		List<BRow> b = new ArrayList<>();
+		List<BRow> b = new ArrayList<>(); //stadium table
 		/* Table b stores area codes:
 		 *   Adell		920
 		 *   Clyman		921
@@ -81,10 +81,10 @@ public class A6Disc {
 		// Use a map to store elements of table b that need to be joined
 		// - only add a row from b if the city name appears in a
 		
-		Map<String, BRow> bmap = new HashMap<>();
+		Map<String, BRow> bmap = new HashMap<>(); //stadium map <String, StadiumRow>
 
-		for (BRow br : b) {
-			for (ARow ar : a) {
+		for (BRow br : b) {//stadium row/stdaium table
+			for (ARow ar : a) {//city row/city table
 				if (br.getName().compareTo(ar.getName()) == 0) {
 					bmap.put(br.getName(), br);
 				}

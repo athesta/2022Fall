@@ -1,5 +1,0 @@
-My Cities: City, city id, population in millions
-
-West Salem, 1, 3000
-La crosse, 100, 50000
-Sparta, 45, 10000

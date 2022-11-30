@@ -1,4 +1,0 @@
-My Cities: City, city id, population in millions
-
-La Crosse, 100, 50000
-West Salem, 1, 3000

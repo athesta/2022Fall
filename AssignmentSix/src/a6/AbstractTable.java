@@ -13,7 +13,7 @@ public abstract class AbstractTable <T extends AbstractRow> {
 
 	// DATA MEMBERS
 	private String tableHeader;
-	List<AbstractRow> abFullTable = new ArrayList<>(); 
+	List<AbstractRow> fullTable = new ArrayList<>(); 
 	private int rowCount = 0;
 
 	// GETTERS
@@ -21,8 +21,8 @@ public abstract class AbstractTable <T extends AbstractRow> {
 		return tableHeader;
 	}
 
-	public List<AbstractRow> getAbFullTable() {
-		return abFullTable;
+	public List<AbstractRow> fullTable() {
+		return fullTable;
 	}
 
 	public int getRowCount() {
@@ -34,8 +34,8 @@ public abstract class AbstractTable <T extends AbstractRow> {
 		this.tableHeader = tableHeader;
 	}
 
-	public void setAbFullTable(List<AbstractRow> abFullTable) {
-		this.abFullTable =  abFullTable;
+	public void setFullTable(List<AbstractRow> fullTable) {
+		this.fullTable = fullTable;
 	}
 
 	public void setRowCount(int rowCount) {
@@ -61,7 +61,7 @@ public abstract class AbstractTable <T extends AbstractRow> {
 		if (searchResults == -1) {
 			results = "Row not found";
 			return results;}
-		else return abFullTable.get(searchResults).toString();
+		else return fullTable.get(searchResults).toString();
 	}
 	
 	//

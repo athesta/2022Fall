@@ -19,19 +19,17 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 
 	// DATA MEMBERS
 	// private int rowCount = getRowCount();
-	private List<AbstractRow> stadiumFullTable = getAbFullTable();
+	// private List<AbstractRow> stadiumFullTable = getFullTable();
 	private int numColumns = 4;
 	private String expectedFileType = "Stadium";
-	
-	
-	
+
 	// CLASS METHODS
 	// addRow method adds a row to the Stadium Table
 	public void addRow(String stadiumName, String cityId, String teamName, String capacity) {
 
 		StadiumRow singleRow = new StadiumRow(stadiumName, cityId, teamName, capacity);
 		try {
-			stadiumFullTable.add(singleRow);
+			fullTable.add(singleRow);
 			sortTable();
 		}
 
@@ -119,8 +117,8 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 				outFile.println(getTableHeader() + "\n");
 			}
 
-			for (int i = 0; i < stadiumFullTable.size(); i++) {
-				outFile.println(stadiumFullTable.get(i));
+			for (int i = 0; i < fullTable.size(); i++) {
+				outFile.println(fullTable.get(i));
 			}
 		} catch (FileExtensionException ext) {
 			JOptionPane.showMessageDialog(null, ext.getMessage(), "Invalid File Name", JOptionPane.ERROR_MESSAGE);
@@ -138,7 +136,7 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 	// removeRow removes a row from the Stadium Table when user provides the cityId
 	public void removeRow(String cityId) {
 		int rowId = searchRow(cityId);
-		stadiumFullTable.remove(rowId);
+		fullTable.remove(rowId);
 		// setRowCount(rowCount - 1);
 	}
 
@@ -155,8 +153,8 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 		int loc = 0;
 		AbstractRow getTableRow;
 
-		while (loc < stadiumFullTable.size() && !found) {
-			getTableRow = stadiumFullTable.get(loc);
+		while (loc < fullTable.size() && !found) {
+			getTableRow = fullTable.get(loc);
 			String getTableRowString = getTableRow.toString();
 			String[] split = splitStringComma(getTableRowString);
 
@@ -173,26 +171,24 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 
 	@Override
 	public void sortTable() {
-		final int length = stadiumFullTable.size();
+		final int length = fullTable.size();
 		StadiumRow compRow1;
 		StadiumRow compRow2;
 		for (int counter = 0; counter < length - 1; counter++) {
 			for (int index = 0; index < length - 1 - counter; index++) {
-				compRow1 = (StadiumRow) stadiumFullTable.get(index);
-				compRow2 = (StadiumRow) stadiumFullTable.get(index + 1);
-				if (compRow1.compareTo(compRow2)>0) {
+				compRow1 = (StadiumRow) fullTable.get(index);
+				compRow2 = (StadiumRow) fullTable.get(index + 1);
+				if (compRow1.compareTo(compRow2) > 0) {
 					StadiumRow temp = new StadiumRow(compRow1.getStadiumName(), compRow1.getStadiumCityId(),
 							compRow1.getTeamName(), compRow1.getStadiumCapcity());
-					stadiumFullTable.set(index, compRow2);
-					stadiumFullTable.set(index + 1, temp);
+					fullTable.set(index, compRow2);
+					fullTable.set(index + 1, temp);
 					// testing things
 					// System.out.println(stadiumFullTable.toString());
 
 				}
-
 			}
 		}
-
 	}
 
 }
