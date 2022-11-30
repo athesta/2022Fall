@@ -27,26 +27,31 @@ import javax.swing.JOptionPane;
  */
 
 public class Assign6Main {
-	static final int LOAD_CITY = 1, SAVE_CITY = 2, ADD_ROW_CITY = 3, REMOVE_ROW_CITY = 4, FIND_ROW_CITY = 5,
-			LOAD_STADIUM = 6, SAVE_STADIUM = 7, ADD_ROW_STADIUM = 8, REMOVE_ROW_STADIUM = 9, FIND_ROW_STADIUM = 10,
-			JOIN = 11, QUIT = 12;
+	static final int LOAD_CITY = 1, SAVE_CITY = 2, ADD_ROW_CITY = 3, REMOVE_ROW_CITY = 4, FIND_ROW_CITY = 5, DUPS_CITY = 6,
+			LOAD_STADIUM = 7, SAVE_STADIUM = 8, ADD_ROW_STADIUM = 9, REMOVE_ROW_STADIUM = 10, FIND_ROW_STADIUM = 11, DUPS_STADIUM = 12,
+			JOIN = 13, QUIT = 14;
 
 	static final String welcomeMessage = "This program implements an interactive table builder for City or Stadium information.\n"
 			+ "You can add new rows or remove rows from tables.\n"
 			+ "You can also load a table from a file or save a current\n" + "table to a file.\n";
 	static final String promptMessage = "What would you like to do?\n"
-			+ "Please enter the number corresponding to the action you would like:\n\n" + " City Table Commands:\n"
-			+ "   " + LOAD_CITY + ": Load a table of city information from a file\n" + "   " + SAVE_CITY
-			+ ": Save the table of  city information to a file\n" + "   " + ADD_ROW_CITY
-			+ ": Add a new entry to the city table\n" + "   " + REMOVE_ROW_CITY
-			+ ": Remove an entry from the city table\n" + "   " + FIND_ROW_CITY
-			+ ": Find city information by city identifier\n\n" + " Stadium Table Commands:\n" + "   " + LOAD_STADIUM
-			+ ": Load a table of stadium information from a file\n" + "   " + SAVE_STADIUM
-			+ ": Save the table of stadium information to a file\n" + "   " + ADD_ROW_STADIUM
-			+ ": Add a new entry to the stadium table\n" + "   " + REMOVE_ROW_STADIUM
-			+ ": Remove an entry from the stadium table\n" + "   " + FIND_ROW_STADIUM
-			+ ": Find stadium information by stadium identifier\n\n" + "   " + JOIN
-			+ ": Combine a table of cities and stadiums that share city ID\n\n" + "   " + QUIT + ": Quit\n";
+			+ "Please enter the number corresponding to the action you would like:\n\n" 
+			+ " City Table Commands:\n"
+			+ "   " + LOAD_CITY + ": Load a table of city information from a file\n" 
+			+ "   " + SAVE_CITY + ": Save the table of  city information to a file\n" 
+			+ "   " + ADD_ROW_CITY + ": Add a new entry to the city table\n" 
+			+ "   " + REMOVE_ROW_CITY + ": Remove an entry from the city table\n" 
+			+ "   "	+ FIND_ROW_CITY + ": Find city information by city identifier\n" 
+			+ "   " + DUPS_CITY + ": Remove duplicate city rows based on CityID.\n\n"
+			+ " Stadium Table Commands:\n" 
+			+ "   " + LOAD_STADIUM + ": Load a table of stadium information from a file\n" 
+			+ "   " + SAVE_STADIUM + ": Save the table of stadium information to a file\n" 
+			+ "   "	+ ADD_ROW_STADIUM + ": Add a new entry to the stadium table\n" 
+			+ "   " + REMOVE_ROW_STADIUM + ": Remove an entry from the stadium table\n" 
+			+ "   " + FIND_ROW_STADIUM	+ ": Find stadium information by stadium identifier\n"
+			+ "   " + DUPS_STADIUM + ": Remove duplicate stadium rows based on CityID.\n\n"
+			+ "   " + JOIN + ": Combine a table of cities and stadiums that share city ID\n\n" 
+			+ "   " + QUIT + ": Quit\n";
 
 	public static void main(String[] args) throws FileNotFoundException {
 		System.out.println("Jennifer Swofford");
@@ -58,13 +63,13 @@ public class Assign6Main {
 		while (userSelection != QUIT) {
 
 			userSelection = Integer.parseInt(JOptionPane.showInputDialog(promptMessage));
-			if (userSelection < 6) {
+			if (userSelection < 7) {
 				processSelectionCity(cityInfo, userSelection);
 			}
 
-			else if (userSelection >= 6 && userSelection < 11) {
+			else if (userSelection >= 7 && userSelection <= 12) {
 				processSelectionStadium(stadiumInfo, userSelection);
-			} else if (userSelection >= 11) {
+			} else if (userSelection > 12) {
 				processSelectionJoin(stadiumInfo, cityInfo, userSelection);
 			}
 		}
@@ -96,6 +101,10 @@ public class Assign6Main {
 			cityId = JOptionPane.showInputDialog("Please enter the city identifier of the city you want to find.");
 			// int intId = Integer.parseInt(cityId);
 			JOptionPane.showMessageDialog(null, mytable.findRow(cityId));
+			break;
+		case DUPS_CITY:
+			JOptionPane.showMessageDialog(null, "Searching for & removing duplicates");
+			mytable.removeDuplicateRows();
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "Invalid Input");
@@ -130,6 +139,10 @@ public class Assign6Main {
 			cityId = JOptionPane.showInputDialog("Please enter the city identifier of the stadium you want to find.");
 			JOptionPane.showMessageDialog(null, mytable.findRow(cityId));
 			break;
+		case DUPS_STADIUM:
+			JOptionPane.showMessageDialog(null, "Searching for & removing duplicates");
+			mytable.removeDuplicateRows();
+			break;	
 		default:
 			JOptionPane.showMessageDialog(null, "Invalid Input");
 		}

@@ -96,4 +96,10 @@ public class CityStadiumTable extends AbstractTable<CityStadiumRow> {
 
 		}
 	}
+
+	@Override
+	public void removeDuplicateRows() {
+		// TODO Auto-generated method stub
+		
+	}
 }

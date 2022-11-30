@@ -191,4 +191,25 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 		}
 	}
 
+	@Override
+	public void removeDuplicateRows() {
+		sortTable();
+		StadiumRow comp1;
+		StadiumRow comp2;
+		int removedRowCount = 0;
+		for (int counter = 0; counter < fullTable.size() - 1; counter++) {
+			for (int index = 0; index < fullTable.size() - 1 - counter; index++) {
+				comp1=(StadiumRow) fullTable.get(index);
+				comp2=(StadiumRow) fullTable.get(index+1);
+				if(comp1.compareTo(comp2)==0) {
+					JOptionPane.showMessageDialog(null, "Removing " + fullTable.get(index).toString());
+					fullTable.remove(index);
+					removedRowCount++;
+				}
+		}
+		}
+		JOptionPane.showMessageDialog(null, "Duplicate Row Search Complete. " + removedRowCount + " rows removed.");
+		
+	}
+
 }

@@ -77,5 +77,7 @@ public abstract class AbstractTable <T extends AbstractRow> {
 	
 	public abstract void sortTable();
 	
+	public abstract void removeDuplicateRows();
+	
 	
 }
