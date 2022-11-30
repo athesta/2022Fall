@@ -32,8 +32,6 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 		StadiumRow singleRow = new StadiumRow(stadiumName, cityId, teamName, capacity);
 		try {
 			stadiumFullTable.add(singleRow);
-			// rowCount++;
-			// setRowCount(rowCount);
 			sortTable();
 		}
 
@@ -182,7 +180,7 @@ public class StadiumTable extends AbstractTable<StadiumRow> {
 			for (int index = 0; index < length - 1 - counter; index++) {
 				compRow1 = (StadiumRow) stadiumFullTable.get(index);
 				compRow2 = (StadiumRow) stadiumFullTable.get(index + 1);
-				if (Integer.parseInt(compRow1.getStadiumCityId()) > Integer.parseInt(compRow2.getStadiumCityId())) {
+				if (compRow1.compareTo(compRow2)>0) {
 					StadiumRow temp = new StadiumRow(compRow1.getStadiumName(), compRow1.getStadiumCityId(),
 							compRow1.getTeamName(), compRow1.getStadiumCapcity());
 					stadiumFullTable.set(index, compRow2);

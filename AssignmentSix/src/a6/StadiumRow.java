@@ -55,8 +55,8 @@ public class StadiumRow extends AbstractRow implements Comparator<StadiumRow>, C
 
 	@Override
 	public int compareTo(StadiumRow o) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cityIdCompare = this.rowStadium[1].compareToIgnoreCase(o.getStadiumCityId());
+		return cityIdCompare;
 	}
 
 	@Override

@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 public class CityTable extends AbstractTable<CityRow> {
 
 	// DATA MEMBERS
-	// private int rowCount = getRowCount();
 	private List<AbstractRow> cityFullTable = getAbFullTable();
 	private int numColumns = 3;
 	private String expectedFileType = "City";
@@ -26,7 +25,7 @@ public class CityTable extends AbstractTable<CityRow> {
 
 			cityFullTable.add(singleRow);
 			sortTable();
-			
+
 		}
 
 		catch (java.lang.ArrayIndexOutOfBoundsException oob) {
@@ -166,7 +165,8 @@ public class CityTable extends AbstractTable<CityRow> {
 			return -1;
 	}
 
-	@Override
+	// Sorts the Table - I'm calling this in the addRow and loadTableFromFile
+	// methods
 	public void sortTable() {
 		// [[La Crosse, 01, 5000], [West Salem, 13, 2000]]
 		final int length = cityFullTable.size();
@@ -176,31 +176,24 @@ public class CityTable extends AbstractTable<CityRow> {
 			for (int index = 0; index < length - 1 - counter; index++) {
 				compRow1 = (CityRow) cityFullTable.get(index);
 				compRow2 = (CityRow) cityFullTable.get(index + 1);
-				//if (Integer.parseInt(compRow1.getCityCityId()) > Integer.parseInt(compRow2.getCityCityId())) {
-				if (compRow1.compareTo(compRow2)>0) {
+				// if (Integer.parseInt(compRow1.getCityCityId()) >
+				// Integer.parseInt(compRow2.getCityCityId())) {
+				if (compRow1.compareTo(compRow2) > 0) {
 					CityRow temp = new CityRow(compRow1.getCityName(), compRow1.getCityCityId(),
 							compRow1.getPopulation());
 					cityFullTable.set(index, compRow2);
 					cityFullTable.set(index + 1, temp);
 					// testing things
-					//System.out.println(cityFullTable.toString());
+					System.out.println(cityFullTable.toString());
 
 				}
 
 			}
 		}
 	}
-	
+
 	public void joinTables(StadiumTable o) {
-		
-		
-		
-		
-//		for (StadiumTable st : o) {
-//			for (CityTable ct : cityFullTable) {
-				
-			
-		}
+
 	}
 
-
+}
